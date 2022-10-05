@@ -2,7 +2,7 @@
 
 {% block head %}
   <!--[if !IE 8]><!-->
-    <link href="stylesheets/style.css" rel="stylesheet">
+    <link href="/stylesheets/style.css" rel="stylesheet">
   <!--<![endif]-->
 
 {% endblock %}
@@ -15,6 +15,10 @@
     </label>
     <select class="govuk-select" id="subject" name="subject" aria-describedby="subject-hint">
       <option value="choose" selected>Choose address</option>
+      {% for address in addresses  %}
+        <option value={{address['DPA'].UPRN}} >{{address['DPA'].ADDRESS}} </option>
+      {% endfor %}
+      
       {# Display the addresses from the API call here #}
     </select>
   </div>

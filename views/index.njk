@@ -8,8 +8,20 @@
 
 {% block content %}
   <h1 class="govuk-heading-xl">Address lookup</h1>
-  <div class="govuk-form-group">
-  <form method="" action="">
+  
+  <div>
+   {% if(errors) %}
+    <div>
+      <ul class="red-text">
+      {% for error in errors %}
+      <li>{{ error.msg }}</li>
+      {% endfor %}
+      </ul>
+    </div>
+    {% endif %}
+  </div>
+
+  <form method="post" action="/">
     <label class="govuk-label" for="postcode">
       Enter a postcode
     </label>
